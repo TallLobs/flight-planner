@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Navlog tests</title>
+  <style>
+    body { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 24px; background: #fff; color: #1b1b1b; }
+    .pass { color: #1f7a33; } .fail { color: #b00020; font-weight: 600; }
+    code { color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Navlog math checks</h1>
+  <p id="summary"></p>
+  <ul id="list"></ul>
+  <script src="./navlog.js"></script>
+  <script src="./tests.js"></script>
+  <script>
+    var results = NavlogTests(Navlog), failed = 0, list = document.getElementById('list');
+    results.forEach(function (r) {
+      if (!r.pass) failed++;
+      var li = document.createElement('li');
+      li.className = r.pass ? 'pass' : 'fail';
+      li.textContent = (r.pass ? '✓ ' : '✗ ') + r.name + (r.pass ? '' : '  — got ' + JSON.stringify(r.got));
+      list.appendChild(li);
+    });
+    document.getElementById('summary').textContent = (results.length - failed) + ' of ' + results.length + ' passed';
+  </script>
+</body>
+</html>

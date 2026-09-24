@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VFR Navlog</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" id="btn-clear" title="Start over with a blank navlog and weather log">Clear sheet</button>
+    <button type="button" id="btn-open">Open navlog…</button>
+    <button type="button" id="btn-save">Save navlog</button>
+    <span class="sep"></span>
+    <button type="button" id="btn-import">Import ForeFlight route…</button>
+    <span class="sep"></span>
+    <button type="button" id="btn-fill" title="Copy the selected cell's value into every leg below it (Ctrl+D)">Fill down</button>
+    <button type="button" id="btn-add-page">Add page</button>
+    <button type="button" id="btn-remove-page">Remove last page</button>
+    <span class="sep"></span>
+    <button type="button" id="btn-print">Print</button>
+    <span class="status" id="status" role="status"></span>
+    <input type="file" id="file-open" accept=".json,application/json" hidden>
+    <input type="file" id="file-import" accept=".fpl,.gpx,.kml" hidden>
+  </div>
+
+  <main id="sheets"></main>
+
+  <script src="./navlog.js"></script>
+  <script src="./import.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
